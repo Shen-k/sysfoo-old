@@ -2,7 +2,7 @@ name:  sysfoo-ci-pipeline
 on:
   push:
     branches:
-     - 'master'
+      - 'master'
 
 jobs:
   sysfoo-ci-job:
@@ -22,3 +22,9 @@ jobs:
  
       - name: lsit files
         run: ls -lrt target
+
+      - name: upload
+        uses: actions/upload-artifact@v4
+        with:
+          name: sysfoo 
+          path: target/**.war
